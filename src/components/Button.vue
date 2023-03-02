@@ -13,11 +13,23 @@
 export default {
     name: "Button",
     props: {
-    id: String,
-    className: String,
-    name: String,
-    clickHandler: Function,
-    disabled: Boolean
+    id: {
+        type: String 
+    },
+    className: {
+        type: String
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    clickHandler: {
+        type: Function,
+        required: true
+    },
+    disabled: {
+        type: Boolean
+    }
   }
 }
 </script>

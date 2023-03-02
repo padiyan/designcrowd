@@ -1,29 +1,32 @@
 <template>
-  <div class="">
-    <Header />
+  <div class="p-8">
+    <Header :text="headerText"/>
 
     <div class="flex">
-      <div class="p-2 border-4 border-dotted border-indigo-200">
+      <div class="p-2 border-2 border-dashed border-indigo-200">
         <canvas class="" ref="can" width="1300" height="800"></canvas>
       </div>
 
       <div class="flex flex-col pl-8">
-        <div id="controls" class="flex flex-col gap-4 p-8">
-          <p class="text-2xl font-semibold">Controls</p>
+        <div id="controls" class="flex flex-col gap-8 p-8 border-2 border-dashed border-indigo-200">
+          <p class="text-2xl font-semibold">Control Panel</p>
           <Button id="addNewSquare" name="Add New Square" :clickHandler="addNewSquare" />
           <Button id="evenlySpaceVertically" name="Evenly Space Vertically" :clickHandler="evenlySpaceVertically" />
           <Button id="getCurrentObjects" name="Console Log Current Objects" :clickHandler="getCurrentCanvasObjects" />
           <Button id="reRenderCanvas" name="Re-Render Canvas" :clickHandler="reRenderCanvas" />
       </div>
 
-      <div id="edit" class="flex flex-col gap-4 p-8">
-        <p class="text-2xl font-semibold">Edit Square</p>
+      <div id="edit" class="flex flex-col gap-8 mt-20 p-8 border-2 border-dashed border-indigo-200">
+        <p class="text-2xl font-semibold">Update Panel</p>
 
-        <select name="color" id="color" ref="color" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-          <option v-for="option in options" :value="option.value" :key="option.name">
-            {{ option.name }}
-          </option>
-        </select>
+        <div>
+          <label for="color" class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">Color Picker</label>
+          <select name="color" id="color" ref="color" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-100 focus:border-blue-100 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-100 dark:focus:border-blue-100">
+            <option v-for="option in options" :value="option.value" :key="option.name">
+              {{ option.name }}
+            </option>
+          </select>
+        </div>
 
         <Button id="changeColor" name="Change Color" :clickHandler="setColor" />
 
@@ -54,6 +57,7 @@ export default {
   },
 
   data: () => ({
+    headerText: "Logo Maker",
     canvas: null,
     colorRef: null,
     newleft: 0,
