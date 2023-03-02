@@ -10,7 +10,7 @@ import Maker from './components/Maker.vue'
 export default {
   name: 'App',
   components: {
-    Maker
+    Maker,
   }
 }
 </script>
@@ -22,6 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding: 20px;
+  /* margin-top: 60px; */
 }
 </style>
